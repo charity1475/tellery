@@ -121,7 +121,7 @@
     "use-immer": "^0.6.0",
     "use-query-params": "^1.2.3",
     "validator": "^13.7.0",
-    "yaml": "^1.10.2"
+    "yaml": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
