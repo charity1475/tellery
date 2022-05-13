@@ -1,0 +1,42 @@
+{
+  "identifier": "\"?\"",
+  "stringLiteral": "'?'",
+  "aggregation": {
+    "CHAR,VARCHAR,LONGVARCHAR,DATE,TIME,TIMESTAMP": {
+      "count": "COUNT(?)",
+      "countDistinct": "COUNT(DISTINCT ?)"
+    },
+    "TINYINT,SMALLINT,INTEGER,BIGINT": {
+      "sum": "SUM(?)",
+      "avg": "AVG(?)",
+      "min": "MIN(?)",
+      "max": "MAX(?)",
+      "median": "PERCENTILE_DISC(0.5) WITHIN GROUP(ORDER BY ?)",
+      "std": "STDDEV(?)"
+    },
+    "FLOAT,REAL,DOUBLE,NUMERIC,DECIMAL": {
+      "sum": "SUM(?)",
+      "avg": "AVG(?)",
+      "min": "MIN(?)",
+      "max": "MAX(?)",
+      "median": "PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY ?)",
+      "std": "STDDEV(?)"
+    }
+  },
+  "bucketization": {
+    "CHAR,VARCHAR,LONGVARCHAR": {},
+    "DATE,TIME,TIMESTAMP": {
+      "byYear": "EXTRACT(YEAR FROM ?)",
+      "byMonth": "TO_CHAR(?, 'YYYY-mm')",
+      "byWeek": "EXTRACT(WEEK FROM ?)",
+      "byDate": "DATE(?)"
+    }
+  },
+  "typeConversion": {
+    "TINYINT,SMALLINT,INTEGER,BIGINT,FLOAT,REAL,DOUBLE,NUMERIC,DECIMAL": "?",
+    "CHAR,VARCHAR,LONGVARCHAR": "'?'",
+    "DATE": "DATE '?'",
+    "TIME": "TIME '?'",
+    "TIMESTAMP": "TIMESTAMP '?'"
+  }
+}

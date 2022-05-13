@@ -9,3 +9,5 @@
 /extra
 config.json
 .env
+./idea/
+.idea/
